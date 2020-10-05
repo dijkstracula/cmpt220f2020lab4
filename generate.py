@@ -19,8 +19,12 @@ def decode_char(x,y):
     return chr(ord('a') + ((x + y) % 26))
 
 def decode_flag(credential):
-    """ Decode the flag, given the given credential. """
-    return "TODO: finish this!"
+    """ Decode the flag, given the given credential.  Applies
+    decode_char() to every letter in the cypher and the credential."""
+    ret = []
+    for i in range(len(credential)):
+        ret.append(decode_char(credential[i], CYPHER[i]))
+    return "".join(ret)
 
 def read_credential_file():
     """ Reads the contents of the current directory's .credential
