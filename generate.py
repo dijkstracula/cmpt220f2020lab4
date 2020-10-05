@@ -16,15 +16,17 @@ def read_credential_file():
     try:
         with open(CREDENTIAL_FILE_PATH) as f:
             credential = f.read()
-            if len(credential) != 16:
+            if len(credential) != 23:
                 raise Exception("Invalid credential file.")
+
+            print("Valid credential file found!")
             return credential
     except IOError as e:
         raise Exception("No credential file found.  Contact Big Boss for one.")
 
 def main():
     """ The entry point to the script."""
-    print(" --- generate.py ---")
+    print(" --- welcome to generate.py ---")
     credential = read_credential_file()
     return 0
 
